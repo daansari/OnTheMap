@@ -13,6 +13,7 @@ target 'OnTheMap' do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'SwiftyJSON'
   pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  pod 'TPKeyboardAvoiding'
 
   target 'OnTheMapTests' do
     inherit! :search_paths
