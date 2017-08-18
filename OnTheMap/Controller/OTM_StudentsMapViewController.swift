@@ -8,18 +8,29 @@
 
 import UIKit
 import Foundation
+import MapKit
+import TSMessages
 
 class OTM_StudentsMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinBtn: UIBarButtonItem!
     @IBOutlet weak var refreshBtn: UIBarButtonItem!
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +47,7 @@ class OTM_StudentsMapViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    */        
     
     @IBAction func didTapPinBtn(_ sender: Any) {
     }
