@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		067E068446329874928D1F63 /* Pods_OnTheMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DFB21F1EEB6D5570B8E913 /* Pods_OnTheMapTests.framework */; };
 		808EF6DA1572C89C8FF9BAB3 /* Pods_OnTheMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */; };
+		D008D82F1F47480B00A25950 /* OTM_StudentsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */; };
+		D008D8311F47482C00A25950 /* OTM_StudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */; };
 		D01F138B1F4734EF0086954C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F138A1F4734EF0086954C /* AppDelegate.swift */; };
-		D01F138D1F4734EF0086954C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F138C1F4734EF0086954C /* LoginViewController.swift */; };
+		D01F138D1F4734EF0086954C /* OTM_LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */; };
 		D01F13901F4734EF0086954C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F138E1F4734EF0086954C /* Main.storyboard */; };
 		D01F13921F4734EF0086954C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01F13911F4734EF0086954C /* Assets.xcassets */; };
 		D01F13951F4734EF0086954C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F13931F4734EF0086954C /* LaunchScreen.storyboard */; };
 		D01F13A01F4734F00086954C /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F139F1F4734F00086954C /* OnTheMapTests.swift */; };
 		D01F13AB1F4734F00086954C /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F13AA1F4734F00086954C /* OnTheMapUITests.swift */; };
 		D062CE951F47353400A8554A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D062CE941F47353400A8554A /* Constants.swift */; };
+		D0B48E751F47496F0082B00B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B48E741F47496F0082B00B /* MapKit.framework */; };
 		D772A368AED1FF1C9D924748 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A10774E6EBAD0B00A491D89 /* Pods_OnTheMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +48,11 @@
 		6A33BAF84EAE3B1286341D33 /* Pods-OnTheMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMapUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMapUITests/Pods-OnTheMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		98018A973724837DF697C11D /* Pods-OnTheMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMapTests/Pods-OnTheMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7DFB21F1EEB6D5570B8E913 /* Pods_OnTheMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapViewController.swift; sourceTree = "<group>"; };
+		D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsTableViewController.swift; sourceTree = "<group>"; };
 		D01F13871F4734EF0086954C /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F138A1F4734EF0086954C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D01F138C1F4734EF0086954C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_LoginViewController.swift; sourceTree = "<group>"; };
 		D01F138F1F4734EF0086954C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D01F13911F4734EF0086954C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D01F13941F4734EF0086954C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		D062CE971F4736CC00A8554A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		D062CE981F4736CC00A8554A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D062CE991F4736CC00A8554A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D0B48E741F47496F0082B00B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E282FF58D0AD73BCFF89FD5B /* Pods-OnTheMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMapTests/Pods-OnTheMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B48E751F47496F0082B00B /* MapKit.framework in Frameworks */,
 				D772A368AED1FF1C9D924748 /* Pods_OnTheMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +114,44 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D008D8291F4747BB00A25950 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D008D82A1F4747C000A25950 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D008D82B1F4747C600A25950 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D008D82C1F4747CF00A25950 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */,
+				D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */,
+				D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D008D82D1F4747D400A25950 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D01F137E1F4734EF0086954C = {
 			isa = PBXGroup;
 			children = (
@@ -132,9 +177,13 @@
 		D01F13891F4734EF0086954C /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				D008D82D1F4747D400A25950 /* Extension */,
+				D008D82C1F4747CF00A25950 /* Controller */,
+				D008D82B1F4747C600A25950 /* Network */,
+				D008D82A1F4747C000A25950 /* View */,
+				D008D8291F4747BB00A25950 /* Model */,
 				D062CE961F4736C300A8554A /* Fonts */,
 				D01F138A1F4734EF0086954C /* AppDelegate.swift */,
-				D01F138C1F4734EF0086954C /* LoginViewController.swift */,
 				D01F138E1F4734EF0086954C /* Main.storyboard */,
 				D01F13911F4734EF0086954C /* Assets.xcassets */,
 				D01F13931F4734EF0086954C /* LaunchScreen.storyboard */,
@@ -175,6 +224,7 @@
 		ECED2B8A97FF4D42F1709F44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0B48E741F47496F0082B00B /* MapKit.framework */,
 				2A10774E6EBAD0B00A491D89 /* Pods_OnTheMap.framework */,
 				A7DFB21F1EEB6D5570B8E913 /* Pods_OnTheMapTests.framework */,
 				ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */,
@@ -253,12 +303,18 @@
 		D01F137F1F4734EF0086954C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = OTM_;
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Danish Ansari";
 				TargetAttributes = {
 					D01F13861F4734EF0086954C = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D01F139A1F4734F00086954C = {
 						CreatedOnToolsVersion = 9.0;
@@ -460,8 +516,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D01F138D1F4734EF0086954C /* LoginViewController.swift in Sources */,
+				D01F138D1F4734EF0086954C /* OTM_LoginViewController.swift in Sources */,
 				D01F138B1F4734EF0086954C /* AppDelegate.swift in Sources */,
+				D008D82F1F47480B00A25950 /* OTM_StudentsMapViewController.swift in Sources */,
+				D008D8311F47482C00A25950 /* OTM_StudentsTableViewController.swift in Sources */,
 				D062CE951F47353400A8554A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

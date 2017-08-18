@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  OTM_LoginViewController.swift
 //  OnTheMap
 //
 //  Created by Danish Ahmed Ansari on 8/18/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class OTM_LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
