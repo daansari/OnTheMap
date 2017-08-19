@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import TPKeyboardAvoiding
+import AXWireButton
+import JVFloatLabeledTextField
 
 class OTM_AddPinForStudentLocationViewController: UIViewController {
+    
+    @IBOutlet weak var enterYourLocationStackView: TPKeyboardAvoidingScrollView!
+    @IBOutlet weak var enterYourLocationTextField: JVFloatLabeledTextField!
+    @IBOutlet weak var findOnMapBtn: AXWireButton!
+    
+    @IBOutlet weak var enterLinkToShareStackView: UIStackView!
+    @IBOutlet weak var enterLinkToShareTextField: JVFloatLabeledTextField!
+    @IBOutlet weak var submitBtn: UIButton!
     
     var parseSingleton: ParseDataSingleton!
 
@@ -34,5 +45,25 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MARK: IBAction
+    
+    @IBAction func didTapCancelBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapFindOnMapBtn(_ sender: Any) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.enterYourLocationStackView.alpha = 0
+            self.enterLinkToShareStackView.alpha = 1
+        }) { (value) in
+            self.enterYourLocationStackView.isHidden = true
+            self.enterLinkToShareStackView.isHidden = true
+        }        
+    }
+    
+    @IBAction func didTapSubmitBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

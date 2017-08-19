@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import JVFloatLabeledTextField
 
 class OTM_LoginViewController: UIViewController {
     
+    @IBOutlet weak var emailTextField: JVFloatLabeledTextField!
+    @IBOutlet weak var passwordTextField: JVFloatLabeledTextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     var udacitySingleton: UdacitySingleton!
 
     override func viewDidLoad() {
@@ -23,6 +28,14 @@ class OTM_LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: IBAction
+    
+    @IBAction func didTapLoginBtn(_ sender: Any) {
+    }
+    
+    @IBAction func didTapSignUpBtn(_ sender: Any) {
+    }
+    
+    
 }
 

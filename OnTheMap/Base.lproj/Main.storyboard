@@ -100,6 +100,7 @@
                                                             <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="didTapLoginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGI-9F-hiY"/>
                                                             <segue destination="S9L-k7-MdD" kind="presentation" id="SEl-Xg-ICM"/>
                                                         </connections>
                                                     </button>
@@ -113,6 +114,9 @@
                                                         <state key="normal" title="Don't have an account. Sign Up">
                                                             <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didTapSignUpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPd-UQ-rlb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -166,35 +170,70 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="85r-0u-fxZ" id="vYe-Yz-CgB"/>
+                        <outlet property="loginBtn" destination="2rX-zN-zK9" id="ZWz-Xw-D6f"/>
+                        <outlet property="passwordTextField" destination="uMx-Bg-qSF" id="Vp8-yP-lSZ"/>
+                        <outlet property="signUpBtn" destination="UBX-ar-dyt" id="94a-rT-aXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34" y="179"/>
         </scene>
-        <!--View Controller-->
+        <!--Students Table View Controller-->
         <scene sceneID="xZA-Qx-P22">
             <objects>
-                <viewController id="OSe-rU-TiV" sceneMemberID="viewController">
+                <viewController id="OSe-rU-TiV" customClass="OTM_StudentsTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gG1-YP-gcE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh9-i5-5ss">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XvM-pT-7Yg">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OTM_StudentLocationTableViewCell" rowHeight="50" id="XvM-pT-7Yg" customClass="OTM_StudentLocationTableViewCell" customModule="OnTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XvM-pT-7Yg" id="UTY-4L-xdo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="4Ay-ud-ZfW">
+                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="7Yk-71-CqZ"/>
+                                                        <constraint firstAttribute="width" constant="34" id="BdW-UG-31y"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-B1-MQt">
+                                                    <rect key="frame" x="50" y="8" width="309" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="4H6-DO-2wC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1C2-B1-MQt" firstAttribute="top" secondItem="UTY-4L-xdo" secondAttribute="top" constant="8" id="2wT-WP-kkW"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Ay-ud-ZfW" secondAttribute="bottom" constant="7.5" id="FKE-lj-h2M"/>
+                                                <constraint firstAttribute="bottom" secondItem="1C2-B1-MQt" secondAttribute="bottom" constant="7.5" id="Ffg-Q6-tcq"/>
+                                                <constraint firstItem="1C2-B1-MQt" firstAttribute="leading" secondItem="4Ay-ud-ZfW" secondAttribute="trailing" constant="8" id="RkO-aT-0JE"/>
+                                                <constraint firstItem="4Ay-ud-ZfW" firstAttribute="leading" secondItem="UTY-4L-xdo" secondAttribute="leading" constant="8" id="dhC-EK-xh9"/>
+                                                <constraint firstAttribute="trailing" secondItem="1C2-B1-MQt" secondAttribute="trailing" constant="16" id="gaR-d4-M9M"/>
+                                                <constraint firstItem="4Ay-ud-ZfW" firstAttribute="top" secondItem="UTY-4L-xdo" secondAttribute="top" constant="8" id="lMH-dh-jHE"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kh9-i5-5ss" firstAttribute="trailing" secondItem="u8k-RK-zK7" secondAttribute="trailing" id="OkF-pL-C0M"/>
                             <constraint firstItem="kh9-i5-5ss" firstAttribute="bottom" secondItem="u8k-RK-zK7" secondAttribute="bottom" id="Ro1-nQ-WbD"/>
@@ -206,11 +245,21 @@
                     <navigationItem key="navigationItem" id="f57-Vw-bYU">
                         <barButtonItem key="leftBarButtonItem" image="pin" id="6m0-nW-1ip">
                             <connections>
+                                <action selector="didTapPinBtn:" destination="OSe-rU-TiV" id="blf-sI-OsN"/>
                                 <segue destination="kgm-Y1-UtF" kind="presentation" id="ZXK-pJ-efz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="b50-xA-LYL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="b50-xA-LYL">
+                            <connections>
+                                <action selector="didTapRefreshBtn:" destination="OSe-rU-TiV" id="cFo-kE-vHi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pinBtn" destination="6m0-nW-1ip" id="bVZ-A4-4WP"/>
+                        <outlet property="refreshBtn" destination="b50-xA-LYL" id="2iq-ie-RgU"/>
+                        <outlet property="tableView" destination="kh9-i5-5ss" id="0eE-BF-q0P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VF-Rs-IiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,16 +312,16 @@
             </objects>
             <point key="canvasLocation" x="2392.8000000000002" y="-270.31484257871068"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Pin For Student Location View Controller-->
         <scene sceneID="XoH-RS-UAS">
             <objects>
-                <viewController id="kgm-Y1-UtF" sceneMemberID="viewController">
+                <viewController id="kgm-Y1-UtF" customClass="OTM_AddPinForStudentLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xlI-qI-XJx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NX-qB-05W" userLabel="Enter your location Stack" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="154" width="375" height="358"/>
+                                <rect key="frame" x="0.0" y="154.5" width="375" height="358"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A2P-tv-nmt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="358"/>
@@ -383,6 +432,9 @@
                                                         <state key="normal" title="Find on the Map">
                                                             <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didTapFindOnMapBtn:" destination="kgm-Y1-UtF" eventType="touchUpInside" id="8UX-Ln-mce"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -396,11 +448,13 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="358" id="QdF-JJ-Ffy"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="A2P-tv-nmt" firstAttribute="top" secondItem="4NX-qB-05W" secondAttribute="top" id="0gY-gZ-CE2"/>
                                     <constraint firstAttribute="height" constant="358" id="2Vj-E8-s6J"/>
@@ -446,10 +500,25 @@
                                             <constraint firstItem="pNz-bq-kIm" firstAttribute="centerX" secondItem="pjN-43-9SO" secondAttribute="centerX" id="uIt-Wa-bVb"/>
                                         </constraints>
                                     </view>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uQb-3H-uNk">
-                                        <rect key="frame" x="0.0" y="250" width="375" height="417"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQb-3H-uNk">
+                                        <rect key="frame" x="0.0" y="250" width="375" height="367"/>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3f-as-9sg">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aMV-ox-8lZ"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSubmitBtn:" destination="kgm-Y1-UtF" eventType="touchUpInside" id="nxi-la-dqB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QM-Ve-Zxl">
                                 <rect key="frame" x="294" y="20" width="81" height="36"/>
@@ -460,6 +529,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.12637259070000001" green="0.12639245390000001" blue="0.1263653636" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapCancelBtn:" destination="kgm-Y1-UtF" eventType="touchUpInside" id="Ejh-QK-3IQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -480,6 +552,14 @@
                     <navigationItem key="navigationItem" id="7aR-ot-LBG">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="YZM-RP-45V"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="enterLinkToShareStackView" destination="fDb-If-nNX" id="1Rs-Q8-hJw"/>
+                        <outlet property="enterLinkToShareTextField" destination="pNz-bq-kIm" id="MYS-Ra-pAB"/>
+                        <outlet property="enterYourLocationStackView" destination="4NX-qB-05W" id="RwS-wu-lRy"/>
+                        <outlet property="enterYourLocationTextField" destination="grv-0H-tZ2" id="7mN-7N-yWb"/>
+                        <outlet property="findOnMapBtn" destination="vze-Dj-2D6" id="6fZ-VN-ljs"/>
+                        <outlet property="submitBtn" destination="H3f-as-9sg" id="a1H-CK-kHH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fI6-HU-hdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -549,6 +629,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZXK-pJ-efz"/>
+        <segue reference="mAc-9e-DZG"/>
     </inferredMetricsTieBreakers>
 </document>
