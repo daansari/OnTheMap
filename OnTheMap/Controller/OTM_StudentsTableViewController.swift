@@ -21,6 +21,8 @@ class OTM_StudentsTableViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         parseSingleton = ParseDataSingleton.sharedInstance
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,4 +47,7 @@ class OTM_StudentsTableViewController: UIViewController {
     @IBAction func didTapRefreshBtn(_ sender: Any) {
     }
 
+    @IBAction func didTapLogoutBtn(_ sender: Any) {
+    }
+    
 }

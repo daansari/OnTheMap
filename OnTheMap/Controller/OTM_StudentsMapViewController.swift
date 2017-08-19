@@ -57,5 +57,9 @@ class OTM_StudentsMapViewController: UIViewController {
     
     @IBAction func didTapRefreshBtn(_ sender: Any) {
     }
+    
+    @IBAction func didTapLogoutBtn(_ sender: Any) {
+    }
+    
 
 }

@@ -10,6 +10,7 @@ import UIKit
 import TPKeyboardAvoiding
 import AXWireButton
 import JVFloatLabeledTextField
+import ChameleonFramework
 
 class OTM_AddPinForStudentLocationViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
     @IBOutlet weak var enterLinkToShareStackView: UIStackView!
     @IBOutlet weak var enterLinkToShareTextField: JVFloatLabeledTextField!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var parseSingleton: ParseDataSingleton!
 
@@ -59,6 +61,7 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
             self.enterYourLocationStackView.isHidden = true
             self.enterLinkToShareStackView.isHidden = false
             UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+                self.cancelBtn.setTitleColor(UIColor.flatWhite, for: .normal)
                 self.enterLinkToShareStackView.alpha = 1
             }) { (bool) in
                 
