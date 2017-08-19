@@ -11,6 +11,10 @@
 		808EF6DA1572C89C8FF9BAB3 /* Pods_OnTheMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */; };
 		D008D82F1F47480B00A25950 /* OTM_StudentsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */; };
 		D008D8311F47482C00A25950 /* OTM_StudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */; };
+		D01C74B61F48BE310080F003 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C74B51F48BE310080F003 /* StudentLocation.swift */; };
+		D01C74BA1F48C8D90080F003 /* UdacitySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C74B91F48C8D90080F003 /* UdacitySingleton.swift */; };
+		D01C74BC1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C74BB1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift */; };
+		D01C74BE1F48D05C0080F003 /* ParseDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C74BD1F48D05B0080F003 /* ParseDataSingleton.swift */; };
 		D01F138B1F4734EF0086954C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F138A1F4734EF0086954C /* AppDelegate.swift */; };
 		D01F138D1F4734EF0086954C /* OTM_LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */; };
 		D01F13901F4734EF0086954C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F138E1F4734EF0086954C /* Main.storyboard */; };
@@ -51,6 +55,10 @@
 		A7DFB21F1EEB6D5570B8E913 /* Pods_OnTheMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapViewController.swift; sourceTree = "<group>"; };
 		D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsTableViewController.swift; sourceTree = "<group>"; };
+		D01C74B51F48BE310080F003 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		D01C74B91F48C8D90080F003 /* UdacitySingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacitySingleton.swift; sourceTree = "<group>"; };
+		D01C74BB1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_AddPinForStudentLocationViewController.swift; sourceTree = "<group>"; };
+		D01C74BD1F48D05B0080F003 /* ParseDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseDataSingleton.swift; sourceTree = "<group>"; };
 		D01F13871F4734EF0086954C /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F138A1F4734EF0086954C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_LoginViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 		D008D8291F4747BB00A25950 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D01C74B51F48BE310080F003 /* StudentLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +142,8 @@
 		D008D82B1F4747C600A25950 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D01C74BD1F48D05B0080F003 /* ParseDataSingleton.swift */,
+				D01C74B91F48C8D90080F003 /* UdacitySingleton.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -143,6 +154,7 @@
 				D01F138C1F4734EF0086954C /* OTM_LoginViewController.swift */,
 				D008D82E1F47480B00A25950 /* OTM_StudentsMapViewController.swift */,
 				D008D8301F47482C00A25950 /* OTM_StudentsTableViewController.swift */,
+				D01C74BB1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,8 +547,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01C74BA1F48C8D90080F003 /* UdacitySingleton.swift in Sources */,
+				D01C74B61F48BE310080F003 /* StudentLocation.swift in Sources */,
 				D01F138D1F4734EF0086954C /* OTM_LoginViewController.swift in Sources */,
+				D01C74BE1F48D05C0080F003 /* ParseDataSingleton.swift in Sources */,
 				D0B48E7B1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift in Sources */,
+				D01C74BC1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift in Sources */,
 				D01F138B1F4734EF0086954C /* AppDelegate.swift in Sources */,
 				D008D82F1F47480B00A25950 /* OTM_StudentsMapViewController.swift in Sources */,
 				D008D8311F47482C00A25950 /* OTM_StudentsTableViewController.swift in Sources */,
