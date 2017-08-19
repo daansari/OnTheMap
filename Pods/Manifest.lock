@@ -1,4 +1,5 @@
 PODS:
+  - AXWireButton (1.0.0)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
@@ -15,6 +16,7 @@ PODS:
     - HexColors (~> 2.3.0)
 
 DEPENDENCIES:
+  - AXWireButton
   - ChameleonFramework (from `https://github.com/ViccAlexander/Chameleon.git`)
   - JVFloatLabeledTextField
   - MBProgressHUD (~> 1.0.0)
@@ -39,6 +41,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/KrauseFx/TSMessages.git
 
 SPEC CHECKSUMS:
+  AXWireButton: 91eed70d80eb92235a37e0d0c88136252743aebf
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   JVFloatLabeledTextField: 96c0c1b6739001801340d25b86aff990d67c4181
@@ -50,6 +53,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   TSMessages: eb3cf27b6900684a21bad4fe9ea426e287b8c839
 
-PODFILE CHECKSUM: 7e55af99b25be4708ac90031a629e30d8ba1dfd1
+PODFILE CHECKSUM: 4fef758e42eb14991750f8f5216728262f6c76ef
 
 COCOAPODS: 1.2.1

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '469EB7CC77E55763A2F747C9AD74C896'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = 'B60385819D2A07D13E1F0DB3A418A2FE'
+               BlueprintName = 'AXWireButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'AXWireButton.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

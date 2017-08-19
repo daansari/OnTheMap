@@ -1,0 +1,6 @@
+framework module AXWireButton {
+  umbrella header "AXWireButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

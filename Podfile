@@ -14,6 +14,7 @@ target 'OnTheMap' do
   pod 'SwiftyJSON'
   pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'TPKeyboardAvoiding'
+  pod 'AXWireButton'
 
   target 'OnTheMapTests' do
     inherit! :search_paths
