@@ -53,13 +53,17 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
     }
     
     @IBAction func didTapFindOnMapBtn(_ sender: Any) {
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
             self.enterYourLocationStackView.alpha = 0
-            self.enterLinkToShareStackView.alpha = 1
-        }) { (value) in
+        }) { (bool) in
             self.enterYourLocationStackView.isHidden = true
-            self.enterLinkToShareStackView.isHidden = true
-        }        
+            self.enterLinkToShareStackView.isHidden = false
+            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+                self.enterLinkToShareStackView.alpha = 1
+            }) { (bool) in
+                
+            }
+        }
     }
     
     @IBAction func didTapSubmitBtn(_ sender: Any) {
