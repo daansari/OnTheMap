@@ -9,10 +9,13 @@
 import UIKit
 
 class OTM_LoginViewController: UIViewController {
+    
+    var udacitySingleton: UdacitySingleton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        udacitySingleton = UdacitySingleton.sharedInstance
     }
 
     override func didReceiveMemoryWarning() {

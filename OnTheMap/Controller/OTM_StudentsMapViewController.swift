@@ -16,12 +16,15 @@ class OTM_StudentsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinBtn: UIBarButtonItem!
     @IBOutlet weak var refreshBtn: UIBarButtonItem!
+    
     var locationManager = CLLocationManager()
+    var parseSingleton: ParseDataSingleton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        parseSingleton = ParseDataSingleton.sharedInstance
     }
     
     override func viewWillAppear(_ animated: Bool) {

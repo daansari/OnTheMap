@@ -16,6 +16,8 @@ struct Constants {
         static let APIPathForSession = "/api/session"
         static let APIPathForUsers = "/api/users"
         static let UserID = "userId"
+        static let FirstName = "first_name"
+        static let LastName = "last_name"
     }
     
     // MARK: Udacity Account

@@ -14,10 +14,13 @@ class OTM_StudentsTableViewController: UIViewController {
     @IBOutlet weak var pinBtn: UIBarButtonItem!
     @IBOutlet weak var refreshBtn: UIBarButtonItem!
     
+    var parseSingleton: ParseDataSingleton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        parseSingleton = ParseDataSingleton.sharedInstance
     }
 
     override func didReceiveMemoryWarning() {

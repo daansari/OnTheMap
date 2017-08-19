@@ -71,6 +71,7 @@ class UdacitySingleton {
                 print("account - \(account)")
                 print("session - \(session)")
                 
+                // Add values to UserDefaults for use while checking session on app launches
                 UserDefaults.standard.set(account[Constants.UdacityAccountKeys.Registered], forKey: Constants.UdacityAccountKeys.Registered)
                 UserDefaults.standard.set(account[Constants.UdacityAccountKeys.Key], forKey: Constants.UdacityAccountKeys.Key)                
                 UserDefaults.standard.set(account[Constants.UdacitySessionKeys.Id], forKey: Constants.UdacitySessionKeys.Id)
@@ -146,14 +147,15 @@ class UdacitySingleton {
                 }
                 
                 print("session - \(session)")
-                //                self.randomPage = Int(arc4random_uniform(UInt32(self.pages)))
-                //                print("randomPageIndex - \(self.randomPage)")
                 
-                //                for studentLocation in studentLocations {
-                //                    let studentLocationObj = StudentLocation.init()
-                //                    studentLocationObj.initStudentLocation(data: studentLocation)
-                //                    self.studentLocations.append(studentLocationObj)
-                //                }
+                // Remove objects from UserDefaults
+                UserDefaults.standard.removeObject(forKey: Constants.UdacityAccountKeys.Registered)
+                UserDefaults.standard.removeObject(forKey: Constants.UdacityAccountKeys.Key)
+                UserDefaults.standard.removeObject(forKey: Constants.UdacitySessionKeys.Id)
+                UserDefaults.standard.removeObject(forKey: Constants.UdacitySessionKeys.Expiration)
+                UserDefaults.standard.removeObject(forKey: Constants.Udacity.FirstName)
+                UserDefaults.standard.removeObject(forKey: Constants.Udacity.LastName)
+                UserDefaults.standard.synchronize()
                 
                 onCompletion(nil)
             }
@@ -224,14 +226,16 @@ class UdacitySingleton {
                 }
                 
                 print("user - \(user)")
-                //                self.randomPage = Int(arc4random_uniform(UInt32(self.pages)))
-                //                print("randomPageIndex - \(self.randomPage)")
                 
-                //                for studentLocation in studentLocations {
-                //                    let studentLocationObj = StudentLocation.init()
-                //                    studentLocationObj.initStudentLocation(data: studentLocation)
-                //                    self.studentLocations.append(studentLocationObj)
-                //                }
+                guard let firstName = user[Constants.Udacity.FirstName] as? String, let lastName = user[Constants.Udacity.LastName] as? String else {
+                    displayError(error: "Cannot find keys - \(Constants.Udacity.FirstName), \(Constants.Udacity.LastName) in \(parsedResult!)")
+                    return
+                }
+                
+                // Set first and last name to UserDefaults for using during Add Pin Functionatlity
+                UserDefaults.standard.set(firstName, forKey: Constants.Udacity.FirstName)
+                UserDefaults.standard.set(lastName, forKey: Constants.Udacity.LastName)
+                UserDefaults.standard.synchronize()
                 
                 onCompletion(nil)
             }

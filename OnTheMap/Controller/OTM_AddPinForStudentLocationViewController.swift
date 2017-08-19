@@ -9,11 +9,14 @@
 import UIKit
 
 class OTM_AddPinForStudentLocationViewController: UIViewController {
+    
+    var parseSingleton: ParseDataSingleton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        parseSingleton = ParseDataSingleton.sharedInstance
     }
 
     override func didReceiveMemoryWarning() {
