@@ -1,5 +1,5 @@
 //
-//  OTM_ParseDataSingleton.swift
+//  ParseDataSingleton.swift
 //  OnTheMap
 //
 //  Created by Danish Ahmed Ansari on 8/20/17.
@@ -9,8 +9,8 @@
 import Foundation
 
 typealias ParseDataServiceResponse = (_ error: String?) -> Void
-class OTM_ParseDataSingleton {
-    static let sharedInstance = OTM_ParseDataSingleton()
+class ParseDataSingleton {
+    static let sharedInstance = ParseDataSingleton()
     var studentLocations: [StudentLocation]! = []
     
     private init() {
