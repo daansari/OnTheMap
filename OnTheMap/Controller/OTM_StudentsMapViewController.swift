@@ -22,7 +22,6 @@ class OTM_StudentsMapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var parseSingleton: ParseDataSingleton!
     var studentLocations: [StudentLocation]! = []
-    var annotations: [MKPointAnnotation]! = []
     
     var hud: MBProgressHUD?
 

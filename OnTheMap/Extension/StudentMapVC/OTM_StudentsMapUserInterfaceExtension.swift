@@ -45,7 +45,8 @@ extension OTM_StudentsMapViewController {
     
     func setupUIForTheMapViewWithStudentLocationData() {
         print("self.studentLocations - \(self.studentLocations)")
-        mapView.removeAnnotations(annotations)
+        mapView.removeAnnotations(self.mapView.annotations)
+        var annotations: [MKPointAnnotation] = []
         for student in self.studentLocations {
             let annotation = MKPointAnnotation()
             if student.coordinate != nil {
@@ -65,7 +66,7 @@ extension OTM_StudentsMapViewController {
                     annotation.subtitle = "URL not found"
                 }
                 mapView.addAnnotation(annotation)
-                annotations?.append(annotation)
+                annotations.append(annotation)
             }
         }
         
