@@ -26,6 +26,7 @@
 		D062CE951F47353400A8554A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D062CE941F47353400A8554A /* Constants.swift */; };
 		D0B48E751F47496F0082B00B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B48E741F47496F0082B00B /* MapKit.framework */; };
 		D0B48E7B1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */; };
+		D0CC537B1F49E6B2007520D1 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */; };
 		D772A368AED1FF1C9D924748 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A10774E6EBAD0B00A491D89 /* Pods_OnTheMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		D062CE991F4736CC00A8554A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D0B48E741F47496F0082B00B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapAuthorizationExtension.swift; sourceTree = "<group>"; };
+		D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		E282FF58D0AD73BCFF89FD5B /* Pods-OnTheMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMapTests/Pods-OnTheMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 			children = (
 				D0B48E771F474D250082B00B /* StudentTableVC */,
 				D0B48E761F474D190082B00B /* StudentMapVC */,
+				D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CC537B1F49E6B2007520D1 /* NSDate+Extension.swift in Sources */,
 				D01C74C01F48D36E0080F003 /* OTM_StudentLocationTableViewCell.swift in Sources */,
 				D01C74BA1F48C8D90080F003 /* UdacitySingleton.swift in Sources */,
 				D01C74B61F48BE310080F003 /* StudentLocation.swift in Sources */,

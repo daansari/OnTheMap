@@ -9,7 +9,9 @@
 import UIKit
 
 class OTM_StudentLocationTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var studentNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -18,6 +18,7 @@ struct Constants {
         static let UserID = "userId"
         static let FirstName = "first_name"
         static let LastName = "last_name"
+        static let SignUpURL = "https://www.google.com/url?q=https://www.udacity.com/account/auth%23!/signup&sa=D&ust=1503178984134000&usg=AFQjCNF1aNfsX2eiy5gK4rqmiGIyrwpwsw"
     }
     
     // MARK: Udacity Account
@@ -71,8 +72,9 @@ struct Constants {
     
     // MARK: Parse Parameter Keys
     struct ParseParameterKeys {
-        static let Limit = "limit"
-        static let Skip = "skip"
+        static let Limit = "limit" // limit=100
+        static let Skip = "skip" // limit=200&skip=400
+        static let Order = "order" // order=-updatedAt - Prefixing a key name with a negative sign reverses the order (default order is ascending)
         static let Where = "where"
     }
     

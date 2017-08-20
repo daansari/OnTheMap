@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentLocation: NSObject {
+struct StudentLocation {
     var objectId: String?
     var uniqueKey: String?
     var firstName: String?
@@ -17,25 +17,19 @@ class StudentLocation: NSObject {
     var mediaURL: String?
     var latitude: Double?
     var longitude: Double?
-    var createdAt: Date?
-    var updatedAt: Date?
-    var acl: String?
+    var createdAt: String?
+    var updatedAt: String?
     
-    
-    override init() {
-        super.init()
-    }
-    
-    func initStudentLocation(data: [String: AnyObject]!) {
-        self.objectId = data["objectId"] as? String
-        self.uniqueKey = data["uniqueKey"] as? String
-        self.firstName = data["firstName"] as? String
-        self.mapString = data["mapString"] as? String
-        self.mediaURL = data["mediaURL"] as? String
-        self.latitude = data["latitude"] as? Double
-        self.longitude = data["longitude"] as? Double
-        self.createdAt = data["createdAt"] as? Date
-        self.updatedAt = data["updatedAt"] as? Date
-        self.acl = data["acl"] as? String
+    init(dictionary: [String : Any]) {
+        self.objectId = dictionary["objectId"] as? String
+        self.uniqueKey = dictionary["uniqueKey"] as? String
+        self.firstName = dictionary["firstName"] as? String
+        self.lastName = dictionary["lastName"] as? String
+        self.mapString = dictionary["mapString"] as? String
+        self.mediaURL = dictionary["mediaURL"] as? String
+        self.latitude = dictionary["latitude"] as? Double
+        self.longitude = dictionary["longitude"] as? Double
+        self.createdAt = dictionary["createdAt"] as? String
+        self.updatedAt = dictionary["updatedAt"] as? String
     }
 }

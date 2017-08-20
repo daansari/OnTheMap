@@ -11,6 +11,7 @@ target 'OnTheMap' do
   pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages.git'
   pod 'NSDate+TimeAgo'
   pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'SwiftWebVC'
   pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'TPKeyboardAvoiding'
   pod 'AXWireButton'

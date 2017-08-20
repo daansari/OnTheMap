@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 import JVFloatLabeledTextField
+import SwiftWebVC
 
 class OTM_LoginViewController: UIViewController {
     
@@ -34,8 +36,20 @@ class OTM_LoginViewController: UIViewController {
     }
     
     @IBAction func didTapSignUpBtn(_ sender: Any) {
+        let signUpWebVC = SwiftModalWebVC(urlString: Constants.Udacity.SignUpURL, theme: .lightBlack, dismissButtonStyle: .cross)
+        signUpWebVC.delegate = self as? UINavigationControllerDelegate
+        self.present(signUpWebVC, animated: true, completion: nil)
+    }
+}
+
+extension OTM_LoginViewController: SwiftWebVCDelegate {
+    
+    func didStartLoading() {
+        print("Started loading.")
     }
     
-    
+    func didFinishLoading(success: Bool) {
+        print("Finished loading. Success: \(success).")
+    }
 }
 

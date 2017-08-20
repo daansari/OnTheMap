@@ -9,7 +9,9 @@
 import UIKit
 import Foundation
 import MapKit
+
 import TSMessages
+import MBProgressHUD
 
 class OTM_StudentsMapViewController: UIViewController {
     
@@ -19,16 +21,26 @@ class OTM_StudentsMapViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var parseSingleton: ParseDataSingleton!
+    var studentLocations: [StudentLocation]! = []
+    
+    var hud: MBProgressHUD?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         parseSingleton = ParseDataSingleton.sharedInstance
+        
+        hud = MBProgressHUD.init(view: self.view)
+        hud?.animationType = .zoom
+        hud?.mode = .indeterminate
+        self.view.addSubview(hud!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.studentLocations = parseSingleton.studentLocations
+        getStudentLocations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +64,7 @@ class OTM_StudentsMapViewController: UIViewController {
     }
     */        
     
+    // MARK: IBAction
     @IBAction func didTapPinBtn(_ sender: Any) {
     }
     
@@ -61,5 +74,40 @@ class OTM_StudentsMapViewController: UIViewController {
     @IBAction func didTapLogoutBtn(_ sender: Any) {
     }
     
+    // MARK: Manage Student Location Data
+    func getStudentLocations() {
+        let parameters = [
+            Constants.ParseParameterKeys.Limit: 100,
+            Constants.ParseParameterKeys.Order: "-updatedAt"
+            ] as [String : AnyObject]
+        if self.studentLocations?.count == 0 {
+            self.hud?.label.text = "Getting Student Data...."
+            hud?.show(animated: true)
+            
+            parseSingleton.getStudentLocationData(methodParameters: parameters) { (error) in
+                if error == nil {
+                    self.studentLocations = self.parseSingleton.studentLocations
+                    DispatchQueue.main.async {
+                        self.hud?.label.text = "Setting the arena for the seven kingdoms"
+                        self.hud?.hide(animated: true, afterDelay: 2)
+                        self.setupUIForTheMapViewWithStudentLocationData()
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.hud?.hide(animated: true)
+                        TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
+                    }
+                }
+            }
+        }
+        else {
+            setupUIForTheMapViewWithStudentLocationData()
+        }
+    }
+    
+    func setupUIForTheMapViewWithStudentLocationData() {
+        print("self.studentLocations - \(self.studentLocations)")
+    }
 
 }

@@ -69,8 +69,7 @@ class ParseDataSingleton {
                 //                print("randomPageIndex - \(self.randomPage)")
                 
                 for studentLocation in studentLocations {
-                    let studentLocationObj = StudentLocation.init()
-                    studentLocationObj.initStudentLocation(data: studentLocation)
+                    let studentLocationObj = StudentLocation(dictionary: studentLocation)
                     self.studentLocations.append(studentLocationObj)
                 }
                 

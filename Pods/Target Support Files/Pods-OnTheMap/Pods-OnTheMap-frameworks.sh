@@ -97,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MZAppearance/MZAppearance.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MZFormSheetPresentationController/MZFormSheetPresentationController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NSDate+TimeAgo/NSDate_TimeAgo.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftWebVC/SwiftWebVC.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TPKeyboardAvoiding/TPKeyboardAvoiding.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TSMessages/TSMessages.framework"
 fi
@@ -109,6 +110,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MZAppearance/MZAppearance.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MZFormSheetPresentationController/MZFormSheetPresentationController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NSDate+TimeAgo/NSDate_TimeAgo.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftWebVC/SwiftWebVC.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TPKeyboardAvoiding/TPKeyboardAvoiding.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TSMessages/TSMessages.framework"
 fi
