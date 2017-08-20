@@ -69,45 +69,11 @@ class OTM_StudentsMapViewController: UIViewController {
     }
     
     @IBAction func didTapRefreshBtn(_ sender: Any) {
+        self.studentLocations = []
+        getStudentLocations()
     }
     
     @IBAction func didTapLogoutBtn(_ sender: Any) {
     }
     
-    // MARK: Manage Student Location Data
-    func getStudentLocations() {
-        let parameters = [
-            Constants.ParseParameterKeys.Limit: 100,
-            Constants.ParseParameterKeys.Order: "-updatedAt"
-            ] as [String : AnyObject]
-        if self.studentLocations?.count == 0 {
-            self.hud?.label.text = "Getting Student Data...."
-            hud?.show(animated: true)
-            
-            parseSingleton.getStudentLocationData(methodParameters: parameters) { (error) in
-                if error == nil {
-                    self.studentLocations = self.parseSingleton.studentLocations
-                    DispatchQueue.main.async {
-                        self.hud?.label.text = "Setting the arena for the seven kingdoms"
-                        self.hud?.hide(animated: true, afterDelay: 2)
-                        self.setupUIForTheMapViewWithStudentLocationData()
-                    }
-                }
-                else {
-                    DispatchQueue.main.async {
-                        self.hud?.hide(animated: true)
-                        TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
-                    }
-                }
-            }
-        }
-        else {
-            setupUIForTheMapViewWithStudentLocationData()
-        }
-    }
-    
-    func setupUIForTheMapViewWithStudentLocationData() {
-        print("self.studentLocations - \(self.studentLocations)")
-    }
-
 }

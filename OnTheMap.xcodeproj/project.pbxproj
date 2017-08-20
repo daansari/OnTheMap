@@ -27,6 +27,10 @@
 		D0B48E751F47496F0082B00B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B48E741F47496F0082B00B /* MapKit.framework */; };
 		D0B48E7B1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */; };
 		D0CC537B1F49E6B2007520D1 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */; };
+		D0CC537D1F4A10C8007520D1 /* OTM_StudentsMapUserInterfaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC537C1F4A10C8007520D1 /* OTM_StudentsMapUserInterfaceExtension.swift */; };
+		D0CC537F1F4A1118007520D1 /* OTM_StudentsMapDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC537E1F4A1118007520D1 /* OTM_StudentsMapDelegateExtension.swift */; };
+		D0CC53811F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC53801F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift */; };
+		D0CC53831F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC53821F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift */; };
 		D772A368AED1FF1C9D924748 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A10774E6EBAD0B00A491D89 /* Pods_OnTheMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		D0B48E741F47496F0082B00B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapAuthorizationExtension.swift; sourceTree = "<group>"; };
 		D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		D0CC537C1F4A10C8007520D1 /* OTM_StudentsMapUserInterfaceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapUserInterfaceExtension.swift; sourceTree = "<group>"; };
+		D0CC537E1F4A1118007520D1 /* OTM_StudentsMapDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsMapDelegateExtension.swift; sourceTree = "<group>"; };
+		D0CC53801F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsTableDelegateExtension.swift; sourceTree = "<group>"; };
+		D0CC53821F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_StudentsTableUserInterfaceExtension.swift; sourceTree = "<group>"; };
 		E282FF58D0AD73BCFF89FD5B /* Pods-OnTheMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMapTests/Pods-OnTheMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED27F4DCBF209EBAEF0AB3CA /* Pods_OnTheMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -247,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */,
+				D0CC537C1F4A10C8007520D1 /* OTM_StudentsMapUserInterfaceExtension.swift */,
+				D0CC537E1F4A1118007520D1 /* OTM_StudentsMapDelegateExtension.swift */,
 			);
 			path = StudentMapVC;
 			sourceTree = "<group>";
@@ -254,6 +264,8 @@
 		D0B48E771F474D250082B00B /* StudentTableVC */ = {
 			isa = PBXGroup;
 			children = (
+				D0CC53801F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift */,
+				D0CC53821F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift */,
 			);
 			path = StudentTableVC;
 			sourceTree = "<group>";
@@ -559,9 +571,13 @@
 				D01C74B61F48BE310080F003 /* StudentLocation.swift in Sources */,
 				D01F138D1F4734EF0086954C /* OTM_LoginViewController.swift in Sources */,
 				D01C74BE1F48D05C0080F003 /* ParseDataSingleton.swift in Sources */,
+				D0CC53831F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift in Sources */,
+				D0CC53811F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift in Sources */,
 				D0B48E7B1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift in Sources */,
 				D01C74BC1F48D0340080F003 /* OTM_AddPinForStudentLocationViewController.swift in Sources */,
+				D0CC537D1F4A10C8007520D1 /* OTM_StudentsMapUserInterfaceExtension.swift in Sources */,
 				D01F138B1F4734EF0086954C /* AppDelegate.swift in Sources */,
+				D0CC537F1F4A1118007520D1 /* OTM_StudentsMapDelegateExtension.swift in Sources */,
 				D008D82F1F47480B00A25950 /* OTM_StudentsMapViewController.swift in Sources */,
 				D008D8311F47482C00A25950 /* OTM_StudentsTableViewController.swift in Sources */,
 				D062CE951F47353400A8554A /* Constants.swift in Sources */,

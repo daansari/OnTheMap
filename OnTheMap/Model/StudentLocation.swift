@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct StudentLocation {
     var objectId: String?
@@ -19,6 +20,7 @@ struct StudentLocation {
     var longitude: Double?
     var createdAt: String?
     var updatedAt: String?
+    var coordinate: CLLocationCoordinate2D?
     
     init(dictionary: [String : Any]) {
         self.objectId = dictionary["objectId"] as? String
@@ -31,5 +33,8 @@ struct StudentLocation {
         self.longitude = dictionary["longitude"] as? Double
         self.createdAt = dictionary["createdAt"] as? String
         self.updatedAt = dictionary["updatedAt"] as? String
+        if let latitude = dictionary["latitude"] as? Double, let longitude = dictionary["longitude"] as? Double {
+            self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
     }
 }
