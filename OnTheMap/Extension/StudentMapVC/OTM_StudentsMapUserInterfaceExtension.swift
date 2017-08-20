@@ -26,7 +26,7 @@ extension OTM_StudentsMapViewController {
                     self.studentLocations = self.parseSingleton.studentLocations
                     DispatchQueue.main.async {
                         self.hud?.label.text = "Setting the arena for the seven kingdoms"
-                        self.hud?.hide(animated: true, afterDelay: 2)
+                        self.hud?.hide(animated: true, afterDelay: 0.5)
                         self.setupUIForTheMapViewWithStudentLocationData()
                     }
                 }
@@ -45,8 +45,7 @@ extension OTM_StudentsMapViewController {
     
     func setupUIForTheMapViewWithStudentLocationData() {
         print("self.studentLocations - \(self.studentLocations)")
-        var annotations: [MKPointAnnotation]! = []
-        
+        mapView.removeAnnotations(annotations)
         for student in self.studentLocations {
             let annotation = MKPointAnnotation()
             if student.coordinate != nil {

@@ -264,8 +264,8 @@
 		D0B48E771F474D250082B00B /* StudentTableVC */ = {
 			isa = PBXGroup;
 			children = (
-				D0CC53801F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift */,
 				D0CC53821F4A1162007520D1 /* OTM_StudentsTableUserInterfaceExtension.swift */,
+				D0CC53801F4A1141007520D1 /* OTM_StudentsTableDelegateExtension.swift */,
 			);
 			path = StudentTableVC;
 			sourceTree = "<group>";

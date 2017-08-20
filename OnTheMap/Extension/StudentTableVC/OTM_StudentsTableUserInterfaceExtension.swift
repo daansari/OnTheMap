@@ -25,7 +25,7 @@ extension OTM_StudentsTableViewController {
                     self.studentLocations = self.parseSingleton.studentLocations
                     DispatchQueue.main.async {
                         self.hud?.label.text = "Setting the arena for the seven kingdoms"
-                        self.hud?.hide(animated: true, afterDelay: 1)
+                        self.hud?.hide(animated: true, afterDelay: 0.5)
                         self.tableView.reloadData()
                     }
                 }

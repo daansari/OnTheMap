@@ -34,12 +34,26 @@ extension OTM_StudentsMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let mediaURL = view.annotation?.subtitle {
-            let url = URL(string: mediaURL!)
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        if let annotation = view.annotation {
+            if let mediaURL = annotation.subtitle as? String {
+                let url = URL(string: mediaURL)
+                let alert = UIAlertController(title: "Open in Safari", message: "\(mediaURL)?", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                })
+                alert.addAction(yesAction)
+                
+                let noAction = UIAlertAction(title: "No", style: .destructive, handler: { (action) in
+                })
+                alert.addAction(noAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            else {
+                TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not found", type: .error)
+            }
         }
         else {
-            TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not found", type: .error)
+            TSMessage.showNotification(in: self, title: "Error", subtitle: "Annotation not found", type: .error)
         }
     }
 }

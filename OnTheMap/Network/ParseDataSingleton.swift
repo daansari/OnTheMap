@@ -70,7 +70,9 @@ class ParseDataSingleton {
                 
                 for studentLocation in studentLocations {
                     let studentLocationObj = StudentLocation(dictionary: studentLocation)
-                    self.studentLocations.append(studentLocationObj)
+                    if self.searchStudentLocationsForExisting(student: studentLocationObj) == false {
+                        self.studentLocations.append(studentLocationObj)
+                    }
                 }
                 
                 print("\nself.studentLocations - \(self.studentLocations)")
@@ -197,6 +199,11 @@ class ParseDataSingleton {
                 }
                 
                 print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
+                
+                if self.findStudentFor(objectId: objectId, createdAt: createdAt) != nil {
+                    print("existing student found")
+                }
+                
                 onCompletion(nil)
             }
             catch {
@@ -226,6 +233,39 @@ class ParseDataSingleton {
         }
         
         return components
+    }
+    
+    // MARK: Helper to check for existing students in StudentLocation that will be used while adding new pins
+    func searchStudentLocationsForExisting(student: StudentLocation) -> Bool {
+        let result = self.studentLocations.first(where: { (studentLocation) -> Bool in
+            if (studentLocation.objectId == student.objectId) && (studentLocation.createdAt == student.createdAt) && (studentLocation.updatedAt == student.updatedAt) {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+        
+        if result == nil {
+            return false
+        }
+        return true
+    }
+    
+    func findStudentFor(objectId: String, createdAt: String) -> StudentLocation? {
+        let result = self.studentLocations.first(where: { (studentLocation) -> Bool in
+            if (studentLocation.objectId == objectId) && (studentLocation.createdAt == createdAt) {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+        
+        if result != nil {
+            return result
+        }
+        return nil
     }
 }
 
