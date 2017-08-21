@@ -11,6 +11,7 @@ import TPKeyboardAvoiding
 import AXWireButton
 import JVFloatLabeledTextField
 import ChameleonFramework
+import MapKit
 
 class OTM_AddPinForStudentLocationViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
     @IBOutlet weak var enterLinkToShareTextField: JVFloatLabeledTextField!
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
     
     var parseSingleton: ParseDataSingleton!
 

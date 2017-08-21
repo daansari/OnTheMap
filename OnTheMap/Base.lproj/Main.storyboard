@@ -188,7 +188,7 @@
             <objects>
                 <viewController id="OSe-rU-TiV" customClass="OTM_StudentsTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gG1-YP-gcE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh9-i5-5ss">
@@ -286,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHq-j6-Eej">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <connections>
                                     <outlet property="delegate" destination="UFk-oM-B1a" id="kNd-0h-L2x"/>
                                 </connections>
@@ -521,6 +521,9 @@
                                     </view>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQb-3H-uNk">
                                         <rect key="frame" x="0.0" y="250" width="375" height="367"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kgm-Y1-UtF" id="Up8-qh-Owr"/>
+                                        </connections>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3f-as-9sg">
                                         <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -578,6 +581,7 @@
                         <outlet property="enterYourLocationStackView" destination="4NX-qB-05W" id="RwS-wu-lRy"/>
                         <outlet property="enterYourLocationTextField" destination="grv-0H-tZ2" id="7mN-7N-yWb"/>
                         <outlet property="findOnMapBtn" destination="vze-Dj-2D6" id="6fZ-VN-ljs"/>
+                        <outlet property="mapView" destination="uQb-3H-uNk" id="V0e-bm-Fxj"/>
                         <outlet property="submitBtn" destination="H3f-as-9sg" id="a1H-CK-kHH"/>
                     </connections>
                 </viewController>
@@ -649,6 +653,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mAc-9e-DZG"/>
+        <segue reference="ZXK-pJ-efz"/>
     </inferredMetricsTieBreakers>
 </document>
