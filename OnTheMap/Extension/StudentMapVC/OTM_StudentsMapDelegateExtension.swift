@@ -35,7 +35,8 @@ extension OTM_StudentsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation {
-            if let mediaURL = annotation.subtitle as? String {
+            if var mediaURL = annotation.subtitle as? String {
+                mediaURL = mediaURL.trimmingCharacters(in: .whitespaces)
                 if canOpenURL(string: mediaURL) {
                     if let url = URL(string: mediaURL) {
                         let alert = UIAlertController(title: "Open in Safari", message: "\(mediaURL)?", preferredStyle: .alert)
@@ -67,13 +68,13 @@ extension OTM_StudentsMapViewController: MKMapViewDelegate {
     }
     
     func canOpenURL(string: String?) -> Bool {
-        guard let urlString = string?.trimmingCharacters(in: .whitespaces) else {return false}
+        guard let urlString = string else {return false}
         guard let url = URL(string: urlString) else {return false}
         if !UIApplication.shared.canOpenURL(url) {return false}
         
         //
         let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[regEx])
-        return predicate.evaluate(with: urlString)
+        return predicate.evaluate(with: string)
     }
 }

@@ -40,7 +40,8 @@ extension OTM_StudentsTableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let student = self.studentLocations[indexPath.row]
-        if let mediaURL = student.mediaURL {
+        if var mediaURL = student.mediaURL {
+            mediaURL = mediaURL.trimmingCharacters(in: .whitespaces)
             if canOpenURL(string: mediaURL) {
                 if let url = URL(string: mediaURL) {
                     let alert = UIAlertController(title: "Open in Safari", message: "\(mediaURL)?", preferredStyle: .alert)
