@@ -55,11 +55,11 @@ extension OTM_StudentsTableViewController: UITableViewDelegate, UITableViewDataS
                     self.present(alert, animated: true, completion: nil)
                 }
                 else {
-                    TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not valid", type: .error)
+                    TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not valid for opening in Safari: \(mediaURL)", type: .error)
                 }
             }
             else {
-                TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not valid", type: .error)
+                TSMessage.showNotification(in: self, title: "Error", subtitle: "MediaURL not valid for opening in Safari: \(mediaURL)", type: .error)
             }
         }
         else {
