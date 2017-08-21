@@ -43,11 +43,11 @@ class OTM_LoginViewController: UIViewController {
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
         if (emailTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!  {
-            TSMessage.showNotification(in: self, title: "Email address cannot be empty!", subtitle: nil, type: .error)
+            TSMessage.showNotification(in: self, title: "Email address cannot be empty!", subtitle: nil, type: .message)
             hud?.hide(animated: true)
         }
         else if  (passwordTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            TSMessage.showNotification(in: self, title: "Password cannot be empty!", subtitle: nil, type: .error)
+            TSMessage.showNotification(in: self, title: "Password cannot be empty!", subtitle: nil, type: .message)
             hud?.hide(animated: true)
         }
         else {
@@ -100,6 +100,7 @@ class OTM_LoginViewController: UIViewController {
     @IBAction func didTapSignUpBtn(_ sender: Any) {
         let signUpWebVC = SwiftModalWebVC(urlString: Constants.Udacity.SignUpURL, theme: .lightBlack, dismissButtonStyle: .cross)
         signUpWebVC.delegate = self as? UINavigationControllerDelegate
+        signUpWebVC.title = "Udacity Sign Up"
         self.present(signUpWebVC, animated: true, completion: nil)
     }
 }

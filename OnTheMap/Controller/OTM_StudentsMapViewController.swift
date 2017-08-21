@@ -21,6 +21,7 @@ class OTM_StudentsMapViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var parseSingleton: ParseDataSingleton!
+    var udacitySingleton: UdacitySingleton!
     var studentLocations: [StudentLocation]! = []
     
     var hud: MBProgressHUD?
@@ -30,6 +31,7 @@ class OTM_StudentsMapViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         parseSingleton = ParseDataSingleton.sharedInstance
+        udacitySingleton = UdacitySingleton.sharedInstance
         
         hud = MBProgressHUD.init(view: self.view)
         hud?.animationType = .zoom
@@ -76,14 +78,31 @@ class OTM_StudentsMapViewController: UIViewController {
     @IBAction func didTapLogoutBtn(_ sender: Any) {
         let alert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controllerName = "LoginViewController"
-            
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-            initialViewController.modalTransitionStyle = .flipHorizontal
-            self.present(initialViewController, animated: true) {
-                
+            DispatchQueue.main.async {
+                self.hud?.label.text = "Logging Out"
+                self.hud?.show(animated: true)
             }
+            self.udacitySingleton.deleteLoginSessionForStudent(methodParameters: [:], onCompletion: { (error) in
+                if error == nil {
+                    DispatchQueue.main.async {
+                        self.hud?.hide(animated: true)
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let controllerName = "LoginViewController"
+                        
+                        let initialViewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+                        initialViewController.modalTransitionStyle = .flipHorizontal
+                        self.present(initialViewController, animated: true) {
+                            
+                        }
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.hud?.hide(animated: true)
+                        TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
+                    }
+                }
+            })
         })
         alert.addAction(yesAction)
         

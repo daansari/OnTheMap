@@ -100,10 +100,10 @@ class UdacitySingleton {
         var xsrfCookie: HTTPCookie? = nil
         let sharedCookieStorage = HTTPCookieStorage.shared
         for cookie in sharedCookieStorage.cookies! {
-            if cookie.name == Constants.UdacitySessionKeys.XSRFTOKEN { xsrfCookie = cookie }
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
-            request.setValue(xsrfCookie.value, forHTTPHeaderField: Constants.UdacitySessionKeys.XXSRFTOKEN)
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }
         
         let task = session.dataTask(with: request) { (data, response, error) in
