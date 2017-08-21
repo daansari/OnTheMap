@@ -80,6 +80,7 @@ class ParseDataSingleton {
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }
@@ -88,8 +89,8 @@ class ParseDataSingleton {
     }
     
     func postStudentLocationData(methodParameters: [String: AnyObject], onCompletion: @escaping ParseDataServiceResponse) -> Void {
-        let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Parse.APIPath)
-        let url = urlComponent.url!
+        let urlComponent = Constants.Parse.APIScheme + "://" + Constants.Parse.APIHost + Constants.Parse.APIPath
+        let url = URL(string: urlComponent)!
         
         print(url)
         
@@ -100,6 +101,7 @@ class ParseDataSingleton {
         request.addValue(Constants.ParseHeaderValues.ParseApplicationID, forHTTPHeaderField: Constants.ParseHeaderKeys.ParseApplicationID)
         request.addValue(Constants.ParseHeaderValues.RestAPIKey, forHTTPHeaderField: Constants.ParseHeaderKeys.RestAPIKey)
         request.addValue(Constants.ParseHeaderValues.ContentType, forHTTPHeaderField: Constants.ParseHeaderKeys.ContentType)
+        request.httpBody = "{\"uniqueKey\": \"\(UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)!)\", \"firstName\": \"\(UserDefaults.standard.string(forKey: Constants.Udacity.FirstName)!)\", \"lastName\": \"\(UserDefaults.standard.string(forKey: Constants.Udacity.LastName)!)\",\"mapString\": \"\(methodParameters["mapString"] as! String)\", \"mediaURL\": \"\(methodParameters["mediaURL"] as! String)\",\"latitude\": \(methodParameters["latitude"] as! Double), \"longitude\": \(methodParameters["longitude"] as! Double)}".data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
@@ -135,12 +137,29 @@ class ParseDataSingleton {
                     displayError(error: "Cannot find keys - \(Constants.ParseResponseKeys.ObjectId), \(Constants.ParseResponseKeys.CreatedAt) in \(parsedResult)")
                     return
                 }
+
+                let studentLocationDict = [
+                    "objectId": objectId,
+                    "uniqueKey": UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)!,
+                    "firstName": UserDefaults.standard.string(forKey: Constants.Udacity.FirstName)!,
+                    "lastName": UserDefaults.standard.string(forKey: Constants.Udacity.LastName)!,
+                    "mapString": methodParameters["mapString"] as! String,
+                    "mediaURL": methodParameters["mediaURL"] as! String,
+                    "latitude": methodParameters["latitude"] as! Double,
+                    "longitude": methodParameters["longitude"] as! Double,
+                    "createdAt": createdAt,
+                    "updatedAt": createdAt
+                ] as [String : Any]
+                
+                let studentLocation = StudentLocation.init(dictionary: studentLocationDict)
+                self.studentLocations.insert(studentLocation, at: 0)
                 
                 print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
                 onCompletion(nil)
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }
@@ -150,8 +169,8 @@ class ParseDataSingleton {
     
     func putStudentLocationData(methodParameters: [String: AnyObject], studentLocation: StudentLocation, onCompletion: @escaping ParseDataServiceResponse) -> Void {
         let objectIDPath = studentLocation.objectId!
-        let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Parse.APIPath + "/" + objectIDPath)
-        let url = urlComponent.url!
+        let urlComponent = Constants.Parse.APIScheme + "://" + Constants.Parse.APIHost + Constants.Parse.APIPath + "/" + objectIDPath
+        let url = URL(string: urlComponent)!
         
         print(url)
         
@@ -162,6 +181,8 @@ class ParseDataSingleton {
         request.addValue(Constants.ParseHeaderValues.ParseApplicationID, forHTTPHeaderField: Constants.ParseHeaderKeys.ParseApplicationID)
         request.addValue(Constants.ParseHeaderValues.RestAPIKey, forHTTPHeaderField: Constants.ParseHeaderKeys.RestAPIKey)
         request.addValue(Constants.ParseHeaderValues.ContentType, forHTTPHeaderField: Constants.ParseHeaderKeys.ContentType)
+        request.httpBody = "{\"uniqueKey\": \"\(UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)!)\", \"firstName\": \"\(UserDefaults.standard.string(forKey: Constants.Udacity.FirstName)!)\", \"lastName\": \"\(UserDefaults.standard.string(forKey: Constants.Udacity.LastName)!)\",\"mapString\": \"\(methodParameters["mapString"] as! String)\", \"mediaURL\": \"\(methodParameters["mediaURL"] as! String)\",\"latitude\": \(methodParameters["latitude"] as! Double), \"longitude\": \(methodParameters["longitude"] as! Double)}".data(using: String.Encoding.utf8)
+
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
@@ -197,17 +218,25 @@ class ParseDataSingleton {
                     displayError(error: "Cannot find keys - \(Constants.ParseResponseKeys.ObjectId), \(Constants.ParseResponseKeys.CreatedAt) in \(parsedResult)")
                     return
                 }
-                
+               
                 print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
                 
                 if self.findStudentFor(objectId: objectId, createdAt: createdAt) != nil {
                     print("existing student found")
                 }
+                var studentLocation = studentLocation
+                studentLocation.mapString = methodParameters["mapString"] as? String
+                studentLocation.mediaURL = methodParameters["mediaURL"] as? String
+                studentLocation.latitude = methodParameters["latitude"] as? Double
+                studentLocation.longitude = methodParameters["longitude"] as? Double
+                studentLocation.updatedAt = methodParameters["updatedAt"] as? String
+                
                 
                 onCompletion(nil)
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }
@@ -267,5 +296,7 @@ class ParseDataSingleton {
         }
         return nil
     }
+    
+    
 }
 

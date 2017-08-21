@@ -23,6 +23,7 @@
 		D01F13951F4734EF0086954C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F13931F4734EF0086954C /* LaunchScreen.storyboard */; };
 		D01F13A01F4734F00086954C /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F139F1F4734F00086954C /* OnTheMapTests.swift */; };
 		D01F13AB1F4734F00086954C /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F13AA1F4734F00086954C /* OnTheMapUITests.swift */; };
+		D049F5B21F4B1C430069778C /* OTM_AddPinForStudentLocationGeocodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049F5B11F4B1C430069778C /* OTM_AddPinForStudentLocationGeocodeExtension.swift */; };
 		D062CE951F47353400A8554A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D062CE941F47353400A8554A /* Constants.swift */; };
 		D0B48E751F47496F0082B00B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B48E741F47496F0082B00B /* MapKit.framework */; };
 		D0B48E7B1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48E7A1F474DB10082B00B /* OTM_StudentsMapAuthorizationExtension.swift */; };
@@ -79,6 +80,7 @@
 		D01F13A61F4734F00086954C /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F13AA1F4734F00086954C /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		D01F13AC1F4734F00086954C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D049F5B11F4B1C430069778C /* OTM_AddPinForStudentLocationGeocodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTM_AddPinForStudentLocationGeocodeExtension.swift; sourceTree = "<group>"; };
 		D062CE941F47353400A8554A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D062CE971F4736CC00A8554A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		D062CE981F4736CC00A8554A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		D008D82D1F4747D400A25950 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D049F5B01F4B1C0B0069778C /* AddPinForStudentLocationVC */,
 				D0B48E771F474D250082B00B /* StudentTableVC */,
 				D0B48E761F474D190082B00B /* StudentMapVC */,
 				D0CC537A1F49E6B2007520D1 /* NSDate+Extension.swift */,
@@ -239,6 +242,14 @@
 				D01F13AC1F4734F00086954C /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		D049F5B01F4B1C0B0069778C /* AddPinForStudentLocationVC */ = {
+			isa = PBXGroup;
+			children = (
+				D049F5B11F4B1C430069778C /* OTM_AddPinForStudentLocationGeocodeExtension.swift */,
+			);
+			path = AddPinForStudentLocationVC;
 			sourceTree = "<group>";
 		};
 		D062CE961F4736C300A8554A /* Fonts */ = {
@@ -566,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0CC537B1F49E6B2007520D1 /* NSDate+Extension.swift in Sources */,
+				D049F5B21F4B1C430069778C /* OTM_AddPinForStudentLocationGeocodeExtension.swift in Sources */,
 				D01C74C01F48D36E0080F003 /* OTM_StudentLocationTableViewCell.swift in Sources */,
 				D01C74BA1F48C8D90080F003 /* UdacitySingleton.swift in Sources */,
 				D01C74B61F48BE310080F003 /* StudentLocation.swift in Sources */,

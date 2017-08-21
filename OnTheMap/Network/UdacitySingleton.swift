@@ -81,6 +81,7 @@ class UdacitySingleton {
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }
@@ -159,6 +160,7 @@ class UdacitySingleton {
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }
@@ -230,6 +232,7 @@ class UdacitySingleton {
             }
             catch {
                 displayError(error: "Could not parse the data as JSON: '\(data)'")
+                onCompletion("Could not parse the data as JSON: '\(data)'")
                 return
             }
         }

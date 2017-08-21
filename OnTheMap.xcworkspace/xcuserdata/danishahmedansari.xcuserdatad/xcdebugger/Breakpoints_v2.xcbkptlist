@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/ParseDataSingleton.swift"
-            timestampString = "525015045.837831"
+            timestampString = "525021099.207727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/ParseDataSingleton.swift"
-            timestampString = "525015045.837923"
+            timestampString = "525021099.208117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "searchStudentLocationsForExisting(student:)"
             landmarkType = "7">
             <Locations>
@@ -73,24 +73,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Extension/StudentMapVC/OTM_StudentsMapDelegateExtension.swift"
-            timestampString = "525016025.972684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "mapView(_:viewFor:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "OnTheMap/Controller/OTM_StudentsMapViewController.swift"
-            timestampString = "525016025.972788"
+            timestampString = "525017401.262194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -122,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Extension/StudentTableVC/OTM_StudentsTableDelegateExtension.swift"
-            timestampString = "525016025.972881"
+            timestampString = "525017401.262379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -138,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/UdacitySingleton.swift"
-            timestampString = "525016025.973292"
+            timestampString = "525021099.208426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -186,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/UdacitySingleton.swift"
-            timestampString = "525016025.973378"
+            timestampString = "525021099.208478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -202,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/UdacitySingleton.swift"
-            timestampString = "525016025.973448"
+            timestampString = "525021099.208523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "getInfoFromUdacityForUser(methodParameters:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/ParseDataSingleton.swift"
-            timestampString = "525015045.839642"
+            timestampString = "525021099.208565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "postStudentLocationData(methodParameters:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,12 +218,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Network/UdacitySingleton.swift"
-            timestampString = "525016025.97353"
+            timestampString = "525021099.208825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "deleteLoginSessionForStudent(methodParameters:onCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMap/Network/UdacitySingleton.swift"
+            timestampString = "525021099.208903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "getInfoFromUdacityForUser(methodParameters:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

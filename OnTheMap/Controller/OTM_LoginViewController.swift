@@ -43,11 +43,11 @@ class OTM_LoginViewController: UIViewController {
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
         if (emailTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!  {
-            TSMessage.showNotification(in: self, title: "Email address cannot be empty!", subtitle: nil, type: .message)
+            TSMessage.showNotification(in: self, title: "Email address cannot be empty!", subtitle: nil, type: .error)
             hud?.hide(animated: true)
         }
         else if  (passwordTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            TSMessage.showNotification(in: self, title: "Password cannot be empty!", subtitle: nil, type: .message)
+            TSMessage.showNotification(in: self, title: "Password cannot be empty!", subtitle: nil, type: .error)
             hud?.hide(animated: true)
         }
         else {
