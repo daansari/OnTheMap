@@ -16,6 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let key = UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var controllerName: String = ""
+        
+        if key != nil {
+            controllerName = "LoggedInTabBarController"
+        }
+        else {
+            controllerName = "LoginViewController"
+        }
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+        self.window?.backgroundColor = UIColor.init(red: 35.0/255.0, green: 43.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

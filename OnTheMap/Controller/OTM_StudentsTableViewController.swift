@@ -67,6 +67,23 @@ class OTM_StudentsTableViewController: UIViewController {
     }
 
     @IBAction func didTapLogoutBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controllerName = "LoginViewController"
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+            initialViewController.modalTransitionStyle = .flipHorizontal
+            self.present(initialViewController, animated: true) {
+                
+            }
+        })
+        alert.addAction(yesAction)
+        
+        let noAction = UIAlertAction(title: "No", style: .destructive, handler: { (action) in
+        })
+        alert.addAction(noAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

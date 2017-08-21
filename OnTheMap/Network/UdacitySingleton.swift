@@ -18,19 +18,18 @@ class UdacitySingleton {
     }
     
     func postLoginSessionForStudent(methodParameters: [String: AnyObject], onCompletion: @escaping UdacityServiceResponse) -> Void {
-        let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Udacity.APIPathForSession)
-        let url = urlComponent.url!
-        
+        let session = URLSession.shared
+        let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost + Constants.Udacity.APIPathForSession
+        let url = URL(string: urlString)!
         print(url)
         
-        // TODO: Make request to Flickr!
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
+        var request = NSMutableURLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue(Constants.UdacityHeaderValues.Accept, forHTTPHeaderField: Constants.UdacityHeaderKeys.Accept)
         request.addValue(Constants.UdacityHeaderValues.ContentType, forHTTPHeaderField: Constants.UdacityHeaderKeys.ContentType)
+        request.httpBody = "{\"udacity\": {\"username\": \"\(methodParameters["username"] as! String)\", \"password\": \"\(methodParameters["password"] as! String)\"}}".data(using: String.Encoding.utf8)
         
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             func displayError(error: String) {
                 print("error: \(error)")
                 print("url at the time of error: \(url)")
@@ -90,9 +89,8 @@ class UdacitySingleton {
     }
     
     func deleteLoginSessionForStudent(methodParameters: [String: AnyObject], onCompletion: @escaping UdacityServiceResponse) -> Void {
-        let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Udacity.APIPathForSession)
-        let url = urlComponent.url!
-        
+        let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost + Constants.Udacity.APIPathForSession
+        let url = URL(string: urlString)!
         print(url)
         
         // TODO: Make request to Flickr!
@@ -169,23 +167,14 @@ class UdacitySingleton {
     }
     
     func getInfoFromUdacityForUser(methodParameters: [String: AnyObject], onCompletion: @escaping UdacityServiceResponse) -> Void {
-        let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Udacity.APIPathForUsers + "/" + UserDefaults.standard.string(forKey: Constants.Udacity.UserID)!)
-        let url = urlComponent.url!
+        let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost +  Constants.Udacity.APIPathForUsers + "/" + UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)!
+        let url = URL(string: urlString)!
         
         print(url)
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
         var request = URLRequest(url: url)
-        request.httpMethod = "DELETE"
-        var xsrfCookie: HTTPCookie? = nil
-        let sharedCookieStorage = HTTPCookieStorage.shared
-        for cookie in sharedCookieStorage.cookies! {
-            if cookie.name == Constants.UdacitySessionKeys.XSRFTOKEN { xsrfCookie = cookie }
-        }
-        if let xsrfCookie = xsrfCookie {
-            request.setValue(xsrfCookie.value, forHTTPHeaderField: Constants.UdacitySessionKeys.XXSRFTOKEN)
-        }
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
@@ -216,11 +205,11 @@ class UdacitySingleton {
                 let range = Range(5..<data.count)
                 let newData = data.subdata(in: range) /* subset response data! */
                 
-                let parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as? [[String : AnyObject]]
-                print(parsedResult!)
+                let parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as? [String : AnyObject]
+                print(parsedResult)
                 
                 /* GUARD: Was there any photos and photo returned? */
-                guard let user = parsedResult![0] as? [String: AnyObject] else {
+                guard let user = parsedResult!["user"] as? [String: AnyObject] else {
                     displayError(error: "Cannot find keys - \(Constants.UdacitySessionKeys.Session) in \(parsedResult!)")
                     return
                 }

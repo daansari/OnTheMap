@@ -12,13 +12,13 @@ struct Constants {
     // MARK: Udacity
     struct Udacity {
         static let APIScheme = "https"
-        static let APIHost = "/www.udacity.com"
+        static let APIHost = "www.udacity.com"
         static let APIPathForSession = "/api/session"
         static let APIPathForUsers = "/api/users"
-        static let UserID = "userId"
         static let FirstName = "first_name"
         static let LastName = "last_name"
-        static let SignUpURL = "https://www.google.com/url?q=https://www.udacity.com/account/auth%23!/signup&sa=D&ust=1503178984134000&usg=AFQjCNF1aNfsX2eiy5gK4rqmiGIyrwpwsw"
+        static let SignUpURL = "https://www.udacity.com/account/auth#!/signup"
+//        "https://www.google.com/url?q=https://www.udacity.com/account/auth%23!/signup&sa=D&ust=1503178984134000&usg=AFQjCNF1aNfsX2eiy5gK4rqmiGIyrwpwsw"
     }
     
     // MARK: Udacity Account
