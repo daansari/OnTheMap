@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/Extension/StudentTableVC/OTM_StudentsTableDelegateExtension.swift"
-            timestampString = "525017401.262379"
+            timestampString = "525023160.799873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -240,6 +240,22 @@
             startingLineNumber = "227"
             endingLineNumber = "227"
             landmarkName = "getInfoFromUdacityForUser(methodParameters:onCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMap/Extension/StudentMapVC/OTM_StudentsMapDelegateExtension.swift"
+            timestampString = "525023177.443488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "canOpenURL(string:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

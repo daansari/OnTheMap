@@ -67,13 +67,13 @@ extension OTM_StudentsMapViewController: MKMapViewDelegate {
     }
     
     func canOpenURL(string: String?) -> Bool {
-        guard let urlString = string else {return false}
+        guard let urlString = string?.trimmingCharacters(in: .whitespaces) else {return false}
         guard let url = URL(string: urlString) else {return false}
         if !UIApplication.shared.canOpenURL(url) {return false}
         
         //
         let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[regEx])
-        return predicate.evaluate(with: string)
+        return predicate.evaluate(with: urlString)
     }
 }
