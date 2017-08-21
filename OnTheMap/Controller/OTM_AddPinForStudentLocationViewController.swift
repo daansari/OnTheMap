@@ -115,7 +115,7 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
                 }
                 else {
                     DispatchQueue.main.async {
-                        TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .message)
+                        TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
                         self.hud?.hide(animated: true)
                     }
                 }
