@@ -116,3 +116,10 @@ extension OTM_LoginViewController: SwiftWebVCDelegate {
     }
 }
 
+extension OTM_LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
