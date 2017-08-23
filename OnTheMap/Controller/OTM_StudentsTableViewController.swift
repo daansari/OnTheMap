@@ -20,7 +20,7 @@ class OTM_StudentsTableViewController: UIViewController {
     
     var parseSingleton: ParseDataSingleton!
     var udacitySingleton: UdacitySingleton!
-    var studentLocations: [StudentLocation]! = []
+    var studentLocationSingleton: StudentLocationSingleton = StudentLocationSingleton.sharedInstance
     
     var hud: MBProgressHUD?
     
@@ -40,32 +40,15 @@ class OTM_StudentsTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.studentLocations = parseSingleton.studentLocations
         getStudentLocations()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: IBAction
     @IBAction func didTapPinBtn(_ sender: Any) {
     }
     
     @IBAction func didTapRefreshBtn(_ sender: Any) {
-        self.studentLocations = []
+        self.studentLocationSingleton.studentLocations = []
         getStudentLocations()
     }
 

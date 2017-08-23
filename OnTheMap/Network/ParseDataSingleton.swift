@@ -11,7 +11,7 @@ import Foundation
 typealias ParseDataServiceResponse = (_ error: String?) -> Void
 class ParseDataSingleton {
     static let sharedInstance = ParseDataSingleton()
-    var studentLocations: [StudentLocation]! = []
+    var studentLocationSingleton: StudentLocationSingleton = StudentLocationSingleton.sharedInstance
     
     private init() {
         
@@ -21,7 +21,9 @@ class ParseDataSingleton {
         let urlComponent = parseURLFromParameters(parameters: methodParameters, path: Constants.Parse.APIPath)
         let url = urlComponent.url!
         
-        print(url)
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
@@ -31,8 +33,10 @@ class ParseDataSingleton {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -56,26 +60,29 @@ class ParseDataSingleton {
             
             do {
                 let parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : AnyObject]
-                print(parsedResult)
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let studentLocations = parsedResult[Constants.ParseResponseKeys.Results] as? [[String: AnyObject]] else {
                     displayError(error: "Cannot find keys - \(Constants.ParseResponseKeys.Results) \(parsedResult)")
                     return
                 }
-                
-                print("studentLocations - \(studentLocations)")
-                //                self.randomPage = Int(arc4random_uniform(UInt32(self.pages)))
-                //                print("randomPageIndex - \(self.randomPage)")
-                
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("studentLocations - \(studentLocations)")
+                }
+
                 for studentLocation in studentLocations {
                     let studentLocationObj = StudentLocation(dictionary: studentLocation)
                     if self.searchStudentLocationsForExisting(student: studentLocationObj) == false {
-                        self.studentLocations.append(studentLocationObj)
+                        self.studentLocationSingleton.studentLocations.append(studentLocationObj)
                     }
                 }
                 
-                print("\nself.studentLocations - \(self.studentLocations)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("\nself.studentLocations - \(self.studentLocationSingleton.studentLocations)")
+                }
                 onCompletion(nil)
             }
             catch {
@@ -92,7 +99,9 @@ class ParseDataSingleton {
         let urlComponent = Constants.Parse.APIScheme + "://" + Constants.Parse.APIHost + Constants.Parse.APIPath
         let url = URL(string: urlComponent)!
         
-        print(url)
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
@@ -105,8 +114,10 @@ class ParseDataSingleton {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -130,7 +141,9 @@ class ParseDataSingleton {
             
             do {
                 let parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : AnyObject]
-                print(parsedResult)
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let objectId = parsedResult[Constants.ParseResponseKeys.ObjectId] as? String, let createdAt = parsedResult[Constants.ParseResponseKeys.CreatedAt] as? String else {
@@ -152,9 +165,11 @@ class ParseDataSingleton {
                 ] as [String : Any]
                 
                 let studentLocation = StudentLocation.init(dictionary: studentLocationDict)
-                self.studentLocations.insert(studentLocation, at: 0)
+                self.studentLocationSingleton.studentLocations.insert(studentLocation, at: 0)
                 
-                print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
+                }
                 onCompletion(nil)
             }
             catch {
@@ -172,7 +187,9 @@ class ParseDataSingleton {
         let urlComponent = Constants.Parse.APIScheme + "://" + Constants.Parse.APIHost + Constants.Parse.APIPath + "/" + objectIDPath
         let url = URL(string: urlComponent)!
         
-        print(url)
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
@@ -186,8 +203,10 @@ class ParseDataSingleton {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -211,7 +230,9 @@ class ParseDataSingleton {
             
             do {
                 let parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : AnyObject]
-                print(parsedResult)
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let objectId = parsedResult[Constants.ParseResponseKeys.ObjectId] as? String, let createdAt = parsedResult[Constants.ParseResponseKeys.CreatedAt] as? String else {
@@ -219,10 +240,14 @@ class ParseDataSingleton {
                     return
                 }
                
-                print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("ObjectId: \(objectId), \nCreatedAt: \(createdAt)")
+                }
                 
                 if self.findStudentFor(objectId: objectId, createdAt: createdAt) != nil {
-                    print("existing student found")
+                    if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                        print("existing student found")
+                    }
                 }
                 var studentLocation = studentLocation
                 studentLocation.mapString = methodParameters["mapString"] as? String
@@ -266,7 +291,7 @@ class ParseDataSingleton {
     
     // MARK: Helper to check for existing students in StudentLocation that will be used while adding new pins
     func searchStudentLocationsForExisting(student: StudentLocation) -> Bool {
-        let result = self.studentLocations.first(where: { (studentLocation) -> Bool in
+        let result = self.studentLocationSingleton.studentLocations.first(where: { (studentLocation) -> Bool in
             if (studentLocation.objectId == student.objectId) && (studentLocation.createdAt == student.createdAt) && (studentLocation.updatedAt == student.updatedAt) {
                 return true
             }
@@ -282,7 +307,7 @@ class ParseDataSingleton {
     }
     
     func findStudentFor(objectId: String, createdAt: String) -> StudentLocation? {
-        let result = self.studentLocations.first(where: { (studentLocation) -> Bool in
+        let result = self.studentLocationSingleton.studentLocations.first(where: { (studentLocation) -> Bool in
             if (studentLocation.objectId == objectId) && (studentLocation.createdAt == createdAt) {
                 return true
             }

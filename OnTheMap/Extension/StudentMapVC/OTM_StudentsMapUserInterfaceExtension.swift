@@ -17,13 +17,12 @@ extension OTM_StudentsMapViewController {
             Constants.ParseParameterKeys.Limit: 100,
             Constants.ParseParameterKeys.Order: "-updatedAt"
             ] as [String : AnyObject]
-        if self.studentLocations?.count == 0 {
+        if self.studentLocationSingleton.studentLocations?.count == 0 {
             self.hud?.label.text = "Getting Student Data...."
             hud?.show(animated: true)
             
             parseSingleton.getStudentLocationData(methodParameters: parameters) { (error) in
                 if error == nil {
-                    self.studentLocations = self.parseSingleton.studentLocations
                     DispatchQueue.main.async {
                         self.hud?.label.text = "Setting the arena for the seven kingdoms"
                         self.hud?.hide(animated: true, afterDelay: 0.5)
@@ -44,10 +43,12 @@ extension OTM_StudentsMapViewController {
     }
     
     func setupUIForTheMapViewWithStudentLocationData() {
-        print("self.studentLocations - \(self.studentLocations)")
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print("self.studentLocationSingleton.studentLocations - \(self.studentLocationSingleton.studentLocations)")            
+        }
         mapView.removeAnnotations(self.mapView.annotations)
         var annotations: [MKPointAnnotation] = []
-        for student in self.studentLocations {
+        for student in self.studentLocationSingleton.studentLocations {
             let annotation = MKPointAnnotation()
             if student.coordinate != nil {
                 annotation.coordinate = student.coordinate!

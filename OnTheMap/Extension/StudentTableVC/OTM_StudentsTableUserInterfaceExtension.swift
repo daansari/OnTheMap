@@ -16,13 +16,12 @@ extension OTM_StudentsTableViewController {
             Constants.ParseParameterKeys.Limit: 100,
             Constants.ParseParameterKeys.Order: "-updatedAt"
             ] as [String : AnyObject]
-        if self.studentLocations?.count == 0 {
+        if self.studentLocationSingleton.studentLocations?.count == 0 {
             self.hud?.label.text = "Getting Student Data...."
             hud?.show(animated: true)
             
             parseSingleton.getStudentLocationData(methodParameters: parameters) { (error) in
                 if error == nil {
-                    self.studentLocations = self.parseSingleton.studentLocations
                     DispatchQueue.main.async {
                         self.hud?.label.text = "Setting the arena for the seven kingdoms"
                         self.hud?.hide(animated: true, afterDelay: 0.5)
@@ -39,7 +38,9 @@ extension OTM_StudentsTableViewController {
         }
         else {
             self.tableView.reloadData()
-            print("self.studentLocations - \(self.studentLocations)")
+            if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                print("self.studentLocationSingleton.studentLocations - \(self.studentLocationSingleton.studentLocations)")
+            }
         }
     }
 }

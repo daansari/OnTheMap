@@ -51,22 +51,6 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: IBAction
     
@@ -86,7 +70,9 @@ class OTM_AddPinForStudentLocationViewController: UIViewController {
             hud?.show(animated: true)
             lookupCoordinatesFor(address: enterYourLocationTextField.text!, onCompletion: { (error) in
                 if error == nil {
-                    print("map items: \(self.mapItems)")
+                    if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                        print("map items: \(self.mapItems)")
+                    }
                     DispatchQueue.main.async {
                         self.hud?.hide(animated: true)
                         if self.mapItems.count > 0 {

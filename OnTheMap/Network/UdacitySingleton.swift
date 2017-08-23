@@ -11,7 +11,7 @@ import Foundation
 typealias UdacityServiceResponse = (_ error: String?) -> Void
 class UdacitySingleton {
     static let sharedInstance = UdacitySingleton()
-    var studentLocations: [StudentLocation]! = []
+    var studentLocationSingleton: StudentLocationSingleton = StudentLocationSingleton.sharedInstance
     
     private init() {
         
@@ -21,7 +21,9 @@ class UdacitySingleton {
         let session = URLSession.shared
         let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost + Constants.Udacity.APIPathForSession
         let url = URL(string: urlString)!
-        print(url)
+            if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         var request = NSMutableURLRequest(url: url)
         request.httpMethod = "POST"
@@ -31,8 +33,10 @@ class UdacitySingleton {
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -59,7 +63,9 @@ class UdacitySingleton {
                 let newData = data.subdata(in: range) /* subset response data! */
                 
                 let parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! [String : AnyObject]
-                print(parsedResult)
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let account = parsedResult[Constants.UdacityAccountKeys.Account] as? [String: AnyObject], let session = parsedResult[Constants.UdacitySessionKeys.Session] as? [String: AnyObject] else {
@@ -67,8 +73,10 @@ class UdacitySingleton {
                     return
                 }
                 
-                print("account - \(account)")
-                print("session - \(session)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("account - \(account)")
+                    print("session - \(session)")
+                }
                 
                 // Add values to UserDefaults for use while checking session on app launches
                 UserDefaults.standard.set(account[Constants.UdacityAccountKeys.Registered], forKey: Constants.UdacityAccountKeys.Registered)
@@ -92,7 +100,10 @@ class UdacitySingleton {
     func deleteLoginSessionForStudent(methodParameters: [String: AnyObject], onCompletion: @escaping UdacityServiceResponse) -> Void {
         let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost + Constants.Udacity.APIPathForSession
         let url = URL(string: urlString)!
-        print(url)
+        
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
@@ -109,8 +120,10 @@ class UdacitySingleton {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -137,7 +150,10 @@ class UdacitySingleton {
                 let newData = data.subdata(in: range) /* subset response data! */
                 
                 let parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! [String : AnyObject]
-                print(parsedResult)
+                
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let session = parsedResult[Constants.UdacitySessionKeys.Session] as? [String: AnyObject] else {
@@ -145,7 +161,9 @@ class UdacitySingleton {
                     return
                 }
                 
-                print("session - \(session)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("session - \(session)")
+                }
                 
                 // Remove objects from UserDefaults
                 UserDefaults.standard.removeObject(forKey: Constants.UdacityAccountKeys.Registered)
@@ -172,7 +190,9 @@ class UdacitySingleton {
         let urlString = Constants.Udacity.APIScheme + "://" + Constants.Udacity.APIHost +  Constants.Udacity.APIPathForUsers + "/" + UserDefaults.standard.string(forKey: Constants.UdacityAccountKeys.Key)!
         let url = URL(string: urlString)!
         
-        print(url)
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print(url)
+        }
         
         // TODO: Make request to Flickr!
         let session = URLSession.shared
@@ -180,8 +200,10 @@ class UdacitySingleton {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             func displayError(error: String) {
-                print("error: \(error)")
-                print("url at the time of error: \(url)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("error: \(error)")
+                    print("url at the time of error: \(url)")
+                }
                 onCompletion(error)
             }
             
@@ -208,7 +230,10 @@ class UdacitySingleton {
                 let newData = data.subdata(in: range) /* subset response data! */
                 
                 let parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as? [String : AnyObject]
-                print(parsedResult)
+                
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print(parsedResult as Any)
+                }
                 
                 /* GUARD: Was there any photos and photo returned? */
                 guard let user = parsedResult!["user"] as? [String: AnyObject] else {
@@ -216,7 +241,9 @@ class UdacitySingleton {
                     return
                 }
                 
-                print("user - \(user)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("user - \(user)")
+                }
                 
                 guard let firstName = user[Constants.Udacity.FirstName] as? String, let lastName = user[Constants.Udacity.LastName] as? String else {
                     displayError(error: "Cannot find keys - \(Constants.Udacity.FirstName), \(Constants.Udacity.LastName) in \(parsedResult!)")

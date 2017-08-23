@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '96862AE6F2D99FA91DF8073E2B6F3BE3'
+               BlueprintIdentifier = '5D45843D49DC1996BE092AF56F842294'
                BlueprintName = 'SwiftWebVC-SwiftWebVCResources'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SwiftWebVCResources.bundle'>

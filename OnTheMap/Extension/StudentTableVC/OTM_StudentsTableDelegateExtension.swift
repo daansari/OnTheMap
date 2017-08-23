@@ -16,13 +16,13 @@ extension OTM_StudentsTableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.studentLocations.count
+        return self.studentLocationSingleton.studentLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationTableViewCell", for: indexPath) as! OTM_StudentLocationTableViewCell
         
-        let student = self.studentLocations[indexPath.row]
+        let student = self.studentLocationSingleton.studentLocations[indexPath.row]
         if let firstName = student.firstName, let lastName = student.lastName {
             let name = firstName + " " + lastName
             cell.studentNameLabel.text = name
@@ -39,7 +39,7 @@ extension OTM_StudentsTableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let student = self.studentLocations[indexPath.row]
+        let student = self.studentLocationSingleton.studentLocations[indexPath.row]
         if var mediaURL = student.mediaURL {
             mediaURL = mediaURL.trimmingCharacters(in: .whitespaces)
             if canOpenURL(string: mediaURL) {

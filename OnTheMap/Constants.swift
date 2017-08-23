@@ -9,6 +9,15 @@
 import Foundation
 
 struct Constants {
+    struct ModeKey {
+        static let Environment = "development"
+    }
+    
+    struct ModeValue {
+        static let Development = "development"
+        static let Production = "production"
+    }
+    
     // MARK: Udacity
     struct Udacity {
         static let APIScheme = "https"

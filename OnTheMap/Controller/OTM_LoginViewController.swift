@@ -34,13 +34,7 @@ class OTM_LoginViewController: UIViewController {
         self.view.addSubview(hud!)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: IBAction
-    
+    // MARK: IBAction    
     @IBAction func didTapLoginBtn(_ sender: Any) {
         if (emailTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!  {
             TSMessage.showNotification(in: self, title: "Email address cannot be empty!", subtitle: nil, type: .error)
@@ -82,7 +76,9 @@ class OTM_LoginViewController: UIViewController {
                                 TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
                                 self.hud?.hide(animated: true)
                             }
-                            print("Log in error while fetching student data - \(error!)")
+                            if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                                print("Log in error while fetching student data - \(error!)")
+                            }
                         }
                     })
                 }
@@ -91,7 +87,9 @@ class OTM_LoginViewController: UIViewController {
                         TSMessage.showNotification(in: self, title: "Error", subtitle: error, type: .error)
                         self.hud?.hide(animated: true)
                     }
-                    print("Log in error while logging in - \(error!)")
+                    if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                        print("Log in error while logging in - \(error!)")
+                    }
                 }
             })
         }
@@ -108,11 +106,15 @@ class OTM_LoginViewController: UIViewController {
 extension OTM_LoginViewController: SwiftWebVCDelegate {
     
     func didStartLoading() {
-        print("Started loading.")
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print("Started loading.")
+        }
     }
     
     func didFinishLoading(success: Bool) {
-        print("Finished loading. Success: \(success).")
+        if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+            print("Finished loading. Success: \(success).")
+        }
     }
 }
 

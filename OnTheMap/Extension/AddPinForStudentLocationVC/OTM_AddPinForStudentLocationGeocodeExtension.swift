@@ -19,15 +19,13 @@ extension OTM_AddPinForStudentLocationViewController {
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                if Constants.ModeKey.Environment == Constants.ModeValue.Development {
+                    print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                }
                 onCompletion(error?.localizedDescription)
                 return
             }
-            
-            for item in response.mapItems {
-                // Display the received items
-                print("item - \(item)")
-            }
+
             self.mapItems = response.mapItems
             onCompletion(nil)
         }
